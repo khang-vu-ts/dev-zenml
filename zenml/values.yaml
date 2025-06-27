@@ -2,18 +2,14 @@ mysql:
   global:
     name: mysql
     storageClass: "zenml-storageclass"
-    primary:
-      persistence:
-        enabled: true
-        accessModes:
-          - ReadWriteOnce
-        size: 20Gi
-    secondary:
-      persistence:
-        enabled: true
-        accessModes:
-          - ReadWriteOnce
-        size: 20Gi
+  primary:
+    persistence:
+      enabled: true
+      size: 20Gi
+  secondary:
+    persistence:
+      enabled: true
+      size: 20Gi
   auth:
     rootPassword: "zenml"
     createDatabase: true
