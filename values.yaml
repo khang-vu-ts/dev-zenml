@@ -1,16 +1,18 @@
 mysql:
-  persistence:
-    enabled: true
-    storageClass: "ebs-ssd"
-    size: 20Gi
-    accessModes:
-      - ReadWriteOnce
-    existingClaim: "zenml-pvc"
+  primary:
+    persistence:
+      enabled: true
+      storageClass: "ebs-ssd"
+      size: 20Gi
+      accessModes:
+        - ReadWriteOnce
+      existingClaim: "zenml-pvc"
   auth:
     rootPassword: "zenml"
     database: "zenml"
     username: "zenml"
     password: "zenml"
+
 zenml:
   zenml:
     image:
