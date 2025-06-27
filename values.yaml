@@ -1,0 +1,9 @@
+zenml:
+  zenml:
+    ingress:
+      enabled: true
+      # annotations:
+      #   # nginx.ingress.kubernetes.io/ssl-redirect: "true"
+      #   # nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      #   nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+      host: zenml.potholescannerapi.io.vn
