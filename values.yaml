@@ -19,6 +19,9 @@ zenml:
       repository: zenmldocker/zenml-server
       pullPolicy: IfNotPresent
 
+    database:
+      url: "mysql://zenml:zenml@mysql:3306/zenml"
+
     secure_headers:
       server: enabled
       # The `Strict-Transport-Security` HTTP header value. The default value is
