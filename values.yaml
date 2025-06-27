@@ -1,5 +1,38 @@
 zenml:
   zenml:
+    image:
+      repository: zenmldocker/zenml-server
+      pullPolicy: IfNotPresent
+
+    secure_headers:
+      server: enabled
+      # The `Strict-Transport-Security` HTTP header value. The default value is
+      # `max-age=63072000; includeSubDomains`.
+      hsts: enabled
+      # The `X-Frame-Options` HTTP header value. The default value is `SAMEORIGIN`.
+      xfo: enabled
+      # The `X-XSS-Protection` HTTP header value. The default value is `0`.
+      # NOTE: this header is deprecated and should not be customized anymore. The
+      # `Content-Security-Policy` header should be used instead.
+      xxp: enabled
+      # The `X-Content-Type-Options` HTTP header value. The default value is
+      # `nosniff`.
+      content: enabled
+      # The `Content-Security-Policy` HTTP header value. This is by default set
+      # to a strict CSP policy that only allows content from the origins required
+      # by the ZenML dashboard.
+      # NOTE: customizing this header is discouraged, as it may cause the ZenML
+      # dashboard to malfunction.
+      csp: enabled
+      # The `Referrer-Policy` HTTP header value. The default value is
+      # `no-referrer-when-downgrade`.
+      referrer: enabled
+      # The `Cache-Control` HTTP header value. The default value is
+      # `no-store, no-cache, must-revalidate`.
+      cache: enabled
+      # The `Permissions-Policy` HTTP header value. The default value is
+      # `accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()`.
+      permissions: enabled
     ingress:
       enabled: true
       annotations:
@@ -11,3 +44,11 @@ zenml:
       tls:
         enabled: true
         generateCerts: false
+
+    service:
+      type: ClusterIP
+      port: 80
+
+    serviceaccount:
+      create: true
+      name: zenml
