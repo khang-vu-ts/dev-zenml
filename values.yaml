@@ -10,4 +10,4 @@ zenml:
       host: zenml.potholescannerapi.io.vn
       tls:
         enabled: true
-        secretName: zenml-tls
+        generateCerts: false
