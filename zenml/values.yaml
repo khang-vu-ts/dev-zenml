@@ -2,7 +2,6 @@ mysql:
   primary:
     persistence:
       enabled: true
-      storageClass: "ebs-ssd"
       size: 20Gi
       accessModes:
         - ReadWriteOnce
