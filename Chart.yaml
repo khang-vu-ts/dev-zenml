@@ -9,3 +9,6 @@ dependencies:
   - name: zenml
     repository: oci://public.ecr.aws/zenml
     version: "0.83.1"
+  - name: mysql
+    repository: oci://registry-1.docker.io/bitnamicharts
+    version: "13.0.2"
