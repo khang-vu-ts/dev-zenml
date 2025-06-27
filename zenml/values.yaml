@@ -1,11 +1,8 @@
 mysql:
-  primary:
-    persistence:
-      enabled: true
-      size: 20Gi
-      accessModes:
-        - ReadWriteOnce
-      existingClaim: "zenml-pvc"
+  global:
+    name: mysql
+    storageClass: "zenml-storageclass"
+
   auth:
     rootPassword: "zenml"
     database: "zenml"
@@ -66,6 +63,6 @@ zenml:
       type: ClusterIP
       port: 80
 
-    serviceaccount:
-      create: true
-      name: zenml
+  serviceAccount:
+    create: true
+    name: zenml
