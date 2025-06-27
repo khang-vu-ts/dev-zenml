@@ -20,7 +20,7 @@ zenml:
       pullPolicy: IfNotPresent
 
     database:
-      url: "mysql://zenml:zenml@mysql:3306/zenml"
+      url: "mysql://zenml:zenml@zenml-mysql:3306/zenml"
 
     secure_headers:
       server: enabled
