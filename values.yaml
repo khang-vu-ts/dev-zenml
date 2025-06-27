@@ -8,3 +8,6 @@ zenml:
         # nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
         nginx.ingress.kubernetes.io/proxy-body-size: "0"
       host: zenml.potholescannerapi.io.vn
+      tls:
+        enabled: true
+        secretName: zenml-tls
