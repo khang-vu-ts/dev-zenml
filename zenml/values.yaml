@@ -28,7 +28,7 @@ zenml:
       ssl: false
 
     pro:
-      enabled: true
+      enabled: false
 
     secure_headers:
       server: enabled
