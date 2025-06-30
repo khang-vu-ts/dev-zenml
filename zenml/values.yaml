@@ -62,7 +62,7 @@ zenml:
     defaultProject: default
 
     secretsStore:
-      enabled: true
+      enabled: false
       type: sql
       sql:
         encryptionKey: "zenml"
