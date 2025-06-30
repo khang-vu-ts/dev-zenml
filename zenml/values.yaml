@@ -57,15 +57,99 @@ zenml:
       # `accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()`.
       permissions: enabled
 
-    debug: true
-
-    defaultProject: default
-
     secretsStore:
       enabled: true
+      # The type of secrets store to use. Use one of:
+      #
+      # sql - Use the same SQL database as the ZenML server
+      # aws - Use the AWS Secrets Manager as a secrets store
+      # gcp - Use the GCP Secrets Manager as a secrets store
+      # azure - Use the Azure Key Vault as a secrets store
+      # hashicorp - Use the HashiCorp Vault as a secrets store
+      # custom - Use a custom secrets store implementation (needs a custom
+      #          ZenML server image with the custom secrets store implementation
+      #          installed)
+      #
+      # Depending on the type, additional configuration options may be required
+      # under the respective sections.
       type: sql
+      # SQL backup secrets store configuration. Only relevant if the `sql` backup
+      # secrets store type is configured.
       sql:
         encryptionKey: "zenml"
+
+      gcp:
+        # The GCP Service Connector authentication method to use. The currently
+        # supported authentication methods are:
+        #
+        # - implicit - Use the GCP service account attached to the ZenML server
+        #              pod or environment variables to authenticate with the GCP
+        #              Secrets Manager API
+        # - user-account - Use a GCP user account
+        # - service-account - Use a GCP service account
+        # - impersonation - Use the GCP service account impersonation feature
+        authMethod: service-account
+        # The GCP Service Connector authentication configuration. This should
+        # include the corresponding authentication configuration attributes for
+        # the `authMethod` that you have chosen above.
+        authConfig:
+          project_id:
+          # The GCP user account credentials to use to authenticate with the GCP
+          # Secrets Manager instance. Required if the `authMethod` is set to
+          # `user-account`.
+          user_account_json:
+          # The GCP service account credentials to use to authenticate with the
+          # GCP Secrets Manager instance. Required if the `authMethod` is set to
+          # `service-account` or `impersonation`.
+          service_account_json:
+
+    backupSecretsStore:
+      enabled: false
+      gcp:
+        # The GCP Service Connector authentication method to use for the backup
+        # secrets store. The currently supported authentication methods are:
+        #
+        # - implicit - Use the GCP service account attached to the ZenML server
+        #              pod or environment variables to authenticate with the GCP
+        #              Secrets Manager API
+        # - user-account - Use a GCP user account
+        # - service-account - Use a GCP service account
+        # - impersonation - Use the GCP service account impersonation feature
+        authMethod: service-account
+        # The GCP Service Connector authentication configuration for the backup
+        # secrets store. This should include the corresponding authentication
+        # configuration attributes for the `authMethod` that you have chosen above.
+        authConfig:
+          # The GCP project ID to use. This must be set to the project ID where
+          # the GCP Secrets Manager service that you want to use is located.
+          # Mandatory for all authentication methods.
+          project_id:
+          # The GCP user account credentials to use to authenticate with the GCP
+          # Secrets Manager instance. Required if the `authMethod` is set to
+          # `user-account`.
+          user_account_json:
+          # The GCP service account to impersonate when authenticating with the
+          # GCP Secrets Manager instance. Required if the `authMethod` is set to
+          # `impersonation`.
+          service_account_json:
+          # The GCP workload identity credentials to use to authenticate with the
+          # GCP Secrets Manager instance. Required if the `authMethod` is set to
+          # `external-account`.
+          target_principal:
+          # The GCP workload identity credentials to use to authenticate with the
+          # GCP Secrets Manager instance. Required if the `authMethod` is set to
+          # `external-account`.
+          external_account_json:
+          
+    debug: true
+    defaultProject: default
+    auth:
+      authType: OAUTH2_PASSWORD_BEARER
+      jwtTokenAlgorithm: HS256
+      jwtTokenLeewaySeconds: 10
+      maxFailedDeviceAuthAttempts: 5
+      deviceAuthTimeout: 300
+      deviceAuthPollingInterval: 5
 
     ingress:
       enabled: true
