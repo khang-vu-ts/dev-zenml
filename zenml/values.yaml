@@ -27,6 +27,9 @@ zenml:
       url: "mysql://zenml:zenml@zenml-mysql:3306/zenml"
       ssl: false
 
+    pro:
+      enabled: true
+
     secure_headers:
       server: enabled
       # The `Strict-Transport-Security` HTTP header value. The default value is
@@ -140,7 +143,7 @@ zenml:
           # GCP Secrets Manager instance. Required if the `authMethod` is set to
           # `external-account`.
           external_account_json:
-          
+
     debug: true
     defaultProject: default
     auth:
