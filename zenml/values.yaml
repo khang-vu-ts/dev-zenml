@@ -25,6 +25,7 @@ zenml:
 
     database:
       url: "mysql://zenml:zenml@zenml-mysql:3306/zenml"
+      ssl: false
 
     secure_headers:
       server: enabled
@@ -55,6 +56,17 @@ zenml:
       # The `Permissions-Policy` HTTP header value. The default value is
       # `accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()`.
       permissions: enabled
+
+    debug: true
+
+    defaultProject: default
+
+    secretsStore:
+      enabled: true
+      type: sql
+      sql:
+        encryptionKey: "zenml"
+
     ingress:
       enabled: true
       annotations:
