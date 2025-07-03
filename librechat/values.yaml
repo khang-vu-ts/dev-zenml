@@ -2,6 +2,7 @@ librechat:
   librechat-rag-api:
     enable: true
     embeddingsProvider: openai
+    
   librechat:
     imageVolume:
       enabled: true
