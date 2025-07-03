@@ -11,14 +11,9 @@ anything-llm:
   ingress:
     enabled: true
     annotations:
-      cert-manager.io/cluster-issuer: "letsencrypt-prod"
       nginx.ingress.kubernetes.io/proxy-body-size: "0"
     hosts: 
       - host: anythingllm.potholescannerapi.io.vn
-    tls:
-      - hosts:
-          - anythingllm.potholescannerapi.io.vn
-        secretName: anythingllm-tls
 
   config:
     STORAGE_DIR: "/app/server/storage"
@@ -37,4 +32,4 @@ anything-llm:
         mountPath: /app/server/
       
   chromadb:
-    enabled: true
+    enabled: false
