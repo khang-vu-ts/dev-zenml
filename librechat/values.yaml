@@ -30,7 +30,7 @@ librechat:
     persistence:
       size: 20Gi
 
-  melisearch:
+  meilisearch:
     enabled: true
     persistence:
       enabled: true
