@@ -17,6 +17,9 @@ librechat:
       nginx.ingress.kubernetes.io/proxy-body-size: "0"
     hosts:
       - host: librechat.potholescannerapi.io.vn
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
     tls:
       - hosts:
           - librechat.potholescannerapi.io.vn
