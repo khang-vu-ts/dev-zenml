@@ -19,6 +19,13 @@ anything-llm:
       - hosts:
           - anythingllm.potholescannerapi.io.vn
         secretName: anythingllm-tls
+
+  config:
+    STORAGE_DIR: "/app/server/storage"
+    EMBEDDINGS_MODEL_PREF: "nomic-embed-text:1.5"
+    EMBEDDINGS_MODEL_MAX_CHUNK_LENGTH: 8192
+    VECTOR_DB: "chromadb"
+    CHROMA_ENDPOINT: "http://localhost:8000"
     
   persistence:
     enabled: true
