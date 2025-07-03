@@ -20,14 +20,14 @@ anything-llm:
           - anythingllm.potholescannerapi.io.vn
         secretName: anythingllm-tls
     
-    persistence:
-      enabled: true
-      accessModes:
-        - ReadWriteOnce
-      size: 10Gi
-      volumes:
-        - name: server-storage
-          mountPath: /app/server/
+  persistence:
+    enabled: true
+    accessModes:
+      - ReadWriteOnce
+    size: 20Gi
+    volumes:
+      - name: server-storage
+        mountPath: /app/server/
       
-    chromadb:
-      enabled: true
+  chromadb:
+    enabled: true
