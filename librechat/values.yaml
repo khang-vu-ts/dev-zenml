@@ -3,6 +3,12 @@ librechat:
     enable: true
     embeddingsProvider: openai
 
+  imageVolume:
+    enabled: true
+    accessModes:
+      - ReadWriteOnce
+    size: 20Gi
+
   ingress:
     enabled: true
     className: nginx
@@ -15,3 +21,17 @@ librechat:
       - hosts:
           - librechat.potholescannerapi.io.vn
         secretName: librechat-tls
+
+  mongodb:
+    enabled: true
+    databases: 
+      - Librechat
+    persistence:
+      size: 20Gi
+
+  melisearch:
+    enabled: true
+    persistence:
+      enabled: true
+      storageClass: "ebs-ssd"
+      size: 20Gi
