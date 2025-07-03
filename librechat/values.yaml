@@ -14,17 +14,17 @@ librechat:
     enabled: true
     className: nginx
     annotations:
-      cert-manager.io/cluster-issuer: "letsencrypt-prod"
+      # cert-manager.io/cluster-issuer: "letsencrypt-prod"
       nginx.ingress.kubernetes.io/proxy-body-size: "0"
     hosts:
       - host: librechat.potholescannerapi.io.vn
         paths:
           - path: /
             pathType: ImplementationSpecific
-    tls:
-      - hosts:
-          - librechat.potholescannerapi.io.vn
-        secretName: librechat-tls
+    # tls:
+    #   - hosts:
+    #       - librechat.potholescannerapi.io.vn
+    #     secretName: librechat-tls
 
   mongodb:
     enabled: true
