@@ -28,6 +28,7 @@ librechat:
     databases: 
       - Librechat
     persistence:
+      storageClass: "ebs-ssd"
       size: 20Gi
 
   meilisearch:
