@@ -2,12 +2,13 @@ librechat:
   librechat-rag-api:
     enable: true
     embeddingsProvider: openai
-
-  imageVolume:
-    enabled: true
-    accessModes:
-      - ReadWriteOnce
-    size: 20Gi
+  librechat:
+    imageVolume:
+      enabled: true
+      storageClassName: "ebs-ssd"
+      accessModes:
+        - ReadWriteOnce
+      size: 20Gi
 
   ingress:
     enabled: true
