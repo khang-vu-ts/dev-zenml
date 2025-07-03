@@ -1,0 +1,17 @@
+librechat:
+  librechat-rag-api:
+    enable: true
+    embeddingsProvider: openai
+
+  ingress:
+    enabled: true
+    className: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: "letsencrypt-prod"
+      nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    hosts:
+      - host: librechat.potholescannerapi.io.vn
+    tls:
+      - hosts:
+          - librechat.potholescannerapi.io.vn
+        secretName: librechat-tls
