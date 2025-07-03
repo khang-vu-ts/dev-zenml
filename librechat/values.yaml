@@ -6,8 +6,7 @@ librechat:
     imageVolume:
       enabled: true
       storageClassName: "ebs-ssd"
-      accessModes:
-        - ReadWriteOnce
+      accessModes: ReadWriteOnce
       size: 20Gi
 
   ingress:
