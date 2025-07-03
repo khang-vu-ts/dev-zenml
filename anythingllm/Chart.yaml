@@ -1,0 +1,11 @@
+apiVersion: v2
+name: anythingllm
+description: A Helm Chart of AnythingLLM
+type: application
+appVersion: "1.0.0"
+version: 0.1.0
+
+dependencies:
+  - name: anythingllm
+    repository: https://la-cc.github.io/anything-llm-helm-chart
+    version: "1.0.0"
