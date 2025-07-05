@@ -24,7 +24,7 @@ anything-llm:
   config:
     STORAGE_DIR: "/app/server/storage"
     AZURE_OPENAI_ENDOINT: "https://your-azure-openai-endpoint/"
-    EMBEDDINGS_MODEL_PREF: "text-embedding-3-large"
+    EMBEDDING_MODEL_PREF: "text-embedding-3-large"
     EMBEDDINGS_MODEL_MAX_CHUNK_LENGTH: 8192
     EMBEDDING_ENGINE: "azure"
     VECTOR_DB: "chroma"
