@@ -12,24 +12,37 @@ anything-llm:
     enabled: true
     annotations:
       nginx.ingress.kubernetes.io/proxy-body-size: "0"
+      cert-manager.io/cluster-issuer: 
+      cert-manager.io/renew-before:
     hosts: 
-      - host: anythingllm.potholescannerapi.io.vn
+      - host: anythingllm.example.com
+        paths:
+          - path: /
+            pathType: Prefix
+    tls: []
 
   config:
     STORAGE_DIR: "/app/server/storage"
-    EMBEDDINGS_MODEL_PREF: "nomic-embed-text:1.5"
+    AZURE_OPENAI_ENDOINT: "https://your-azure-openai-endpoint/"
+    EMBEDDINGS_MODEL_PREF: "text-embedding-3-large"
     EMBEDDINGS_MODEL_MAX_CHUNK_LENGTH: 8192
-    VECTOR_DB: "chromadb"
+    EMBEDDING_ENGINE: "azure"
+    VECTOR_DB: "chroma"
     CHROMA_ENDPOINT: "http://localhost:8000"
     
   persistence:
     enabled: true
     accessModes:
       - ReadWriteOnce
-    size: 20Gi
+    size: 10Gi
     volumes:
       - name: server-storage
-        mountPath: /app/server/
+        mountPath: /app/server/storage
       
   chromadb:
-    enabled: false
+    enabled: true
+    chromadb:
+      auth:
+        enabled: false
+    service:
+      type: ClusterIP
