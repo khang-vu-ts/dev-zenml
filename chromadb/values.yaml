@@ -1,0 +1,7 @@
+chromadb:
+  service:
+    type: ClusterIP
+    port: 8000
+  chromadb:
+    auth:
+      enabled: false
