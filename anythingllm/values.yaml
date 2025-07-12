@@ -28,6 +28,9 @@ anything-llm:
     volumes:
       - name: server-storage
         mountPath: /app/server/storage
+
+  chromadb:
+    enabled: false
       
 chromadb:
   service:
