@@ -1,7 +1,7 @@
 anything-llm:
   image: 
     repository: ghcr.io/mintplex-labs/anything-llm
-    tag: 1.1.1
+    tag: 1.8
     pullPolicy: IfNotPresent
 
   service:
@@ -39,10 +39,11 @@ anything-llm:
       - name: server-storage
         mountPath: /app/server/storage
       
+chromadb:
+  service:
+    type: ClusterIP
+    port: 8000
+
   chromadb:
-    enabled: false
-    chromadb:
-      auth:
-        enabled: false
-    service:
-      type: ClusterIP
+    auth:
+      enabled: false
