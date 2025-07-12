@@ -18,7 +18,7 @@ anything-llm:
     EMBEDDINGS_MODEL_MAX_CHUNK_LENGTH: 8192
     EMBEDDING_ENGINE: "azure"
     VECTOR_DB: "chroma"
-    CHROMA_ENDPOINT: "http://chromadb:8000"
+    CHROMA_ENDPOINT: "http://anythingllm-chromadb:8000"
     
   persistence:
     enabled: true
