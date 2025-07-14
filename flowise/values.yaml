@@ -1,0 +1,14 @@
+flowise:
+  worker:
+    enabled: true
+
+  postgresql:
+    enabled: true
+    username: flowise
+    password: flowise
+    database: flowise
+
+  redis:
+    enabled: true
+    auth:
+      password: flowise

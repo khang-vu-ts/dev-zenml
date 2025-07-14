@@ -1,0 +1,11 @@
+apiVersion: v2
+name: flowise
+description: A Helm Chart of Flowise
+type: application
+appVersion: "5.1.1"
+version: 0.1.0
+
+dependencies:
+  - name: flowise
+    repository: "https://cowboysysop.github.io/charts/"
+    version: "5.1.1"
