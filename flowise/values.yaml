@@ -19,6 +19,9 @@ flowise:
     username: flowise
     password: flowise
     database: flowise
+  
+  config:
+    mode: queue
 
   redis:
     enabled: true
