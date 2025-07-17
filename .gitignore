@@ -5,3 +5,5 @@ zenml.yaml
 zenml/charts/mysql-13.0.2.tgz
 zenml/charts/zenml-0.83.1.tgz
 zenml/Chart.lock
+charts
+Chart.lock

@@ -1,6 +1,18 @@
 flowise:
+
+  image:
+    registry: docker.io
+    repository: flowiseai/flowise
+    tag: latest
+    pullPolicy: IfNotPresent
+
   worker:
     enabled: true
+    image:
+      registry: docker.io
+      repository: flowiseai/flowise-worker
+      tag: latest
+      pullPolicy: IfNotPresent
 
   postgresql:
     enabled: true
