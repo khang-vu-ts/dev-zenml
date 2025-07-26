@@ -1,0 +1,10 @@
+apiVersion: v2
+name: postgresql
+appVersion: 16.3.0
+version: 15.5.17
+description: A Helm chart that includes Postgres as a dependency
+
+dependencies:
+  - name: postgresql
+    version: 15.5.17
+    repository: "https://charts.bitnami.com/bitnami"

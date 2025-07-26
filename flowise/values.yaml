@@ -11,7 +11,7 @@ flowise:
     image:
       registry: docker.io
       repository: flowiseai/flowise-worker
-      tag: latest
+      # tag: latest
       pullPolicy: IfNotPresent
 
   postgresql:
