@@ -1,8 +1,8 @@
 postgresql:
   image:
-    registry: pgvector
+    registry: khangvutsocial
     repository: pgvector
-    tag: 0.8.0-pg15
+    tag: latest
     pullPolicy: IfNotPresent
   auth:
     enablePostgresUser: true
