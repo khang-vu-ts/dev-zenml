@@ -21,7 +21,7 @@ postgresql:
   primary:
     name: primary
     containerSecurityContext:
-      enabled: true
+      enabled: false
       seLinuxOptions: {}
       runAsUser: 1001
       runAsGroup: 1001
