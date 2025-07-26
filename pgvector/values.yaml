@@ -5,12 +5,16 @@ postgresql:
     tag: 0.8.0-pg15
     pullPolicy: IfNotPresent
   auth:
-    enablePostgresUser: false
-    existingSecret: "postgresql-secrets"
-    secretKeys:
-      adminPasswordKey: postgres-password
-      userPasswordKey: user-password
-      replicationPasswordKey: replication-password
+    enablePostgresUser: true
+    postgresPassword: "your-postgres-password"
+    username: "postgres"
+    password: "postgres"
+    database: "postgres"
+    # existingSecret: "postgresql-secrets"
+    # secretKeys:
+    #   adminPasswordKey: postgres-password
+    #   userPasswordKey: user-password
+    #   replicationPasswordKey: replication-password
   architecture: standalone
   containerPorts:
     postgresql: 5432
