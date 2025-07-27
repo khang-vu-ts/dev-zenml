@@ -74,4 +74,4 @@ langfuse:
       password: test
 
   s3:
-    deploy: false
+    deploy: true
