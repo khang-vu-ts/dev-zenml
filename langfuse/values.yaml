@@ -72,6 +72,7 @@ langfuse:
     auth:
       username: langfuse
       password: test
+    replicaCount: 1
 
   s3:
     deploy: true
