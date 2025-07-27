@@ -72,3 +72,6 @@ langfuse:
     auth:
       username: langfuse
       password: test
+
+  s3:
+    deploy: false
