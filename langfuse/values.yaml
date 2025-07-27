@@ -1,0 +1,74 @@
+langfuse:
+  fullnameOverride: langfuse
+  langfuse:
+    logging:
+      level: info
+      format: text
+
+    salt:
+      secretKeyRef:
+        name: langfuse-secrets
+        key: salt
+
+    encryptionKey:
+      secretKeyRef:
+        name: langfuse-secrets
+        key: encryptionKey
+
+    features:
+      telemetryEnabled: false
+      signUpDisabled: true
+      experimentalFeaturesEnabled: true
+
+    nodeEnv: production
+
+    ingress:
+      enabled: false
+
+    web:
+      image:
+        repository: langfuse/langfuse
+        tag: v3.86.0
+        pullPolicy: IfNotPresent
+      service:
+        type: ClusterIP
+        port: 3000
+    worker:
+      image:
+        repository: langfuse/langfuse-worker
+        tag: 
+        pullPolicy: IfNotPresent
+      replicas: 1
+      resources:
+        requests:
+          cpu: 100m
+          memory: 256Mi
+        limits:
+          cpu: 500m
+          memory: 512Mi
+
+    nextauth:
+      url: https://localhost:3000
+      secret:
+        secretKeyRef:
+          name: langfuse-secrets
+          key: nextauthSecret
+
+  postgresql:
+    deploy: true
+    auth:
+      username: langfuse
+      password: ""
+      existingSecret: langfuse-secrets
+      secretKeys:
+        userPasswordKey: userPassword
+      database: postgres_langfuse
+
+  redis:
+    deploy: true
+
+  clickhouse:
+    deploy: true
+    auth:
+      username: langfuse
+      password: test
