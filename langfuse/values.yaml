@@ -28,7 +28,7 @@ langfuse:
     web:
       image:
         repository: langfuse/langfuse
-        tag: v3.86.0
+        tag:
         pullPolicy: IfNotPresent
       service:
         type: ClusterIP
